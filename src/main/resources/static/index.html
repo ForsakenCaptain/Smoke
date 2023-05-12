@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>You first Spring application</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form action="/addGame" method="POST">
+  <p>Let's add a game.</p>
+
+  <div>
+    <label for="name">Game name:</label>
+    <input name="name" id="name" value="Halo">
+  </div>
+  <div>
+    <label for="price">Price:</label>
+    <input name="price" id="price" value=30>
+  </div>
+  <div>
+    <button>Add game</button>
+  </div>
+</form>
+
+<form action="/GetAllGames" method="GET">
+  <button>List Games</button>
+</form>
+</body>
+</html>
