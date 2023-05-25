@@ -20,11 +20,20 @@ jobs:
          with:
           java-version: '17'
           distribution: 'temurin'
+       - name: build with maven
+         run: mvn clean install
 
        - name: Run calculator test
          run: mvn test
 
 # deploy:
-       - uses: actions/checkout@v3
-       - name: Build the Docker image
-         run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+#       - uses: actions/checkout@v3
+#       - name: Build the Docker image
+#         run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+       - name: publish to Docker hub
+         uses: docker/build-push-action@v1
+         with:
+           Username: ${{ secrets.DOCKER_HUB_USERNAME }}
+           Password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+           Repository: dockerHubUser/dockerHubRepository
+           tags: ${{github.run_number}}
