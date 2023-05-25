@@ -20,8 +20,8 @@ jobs:
          with:
           java-version: '17'
           distribution: 'temurin'
-       - name: build with maven
-         run: mvn clean install
+#       - name: build with maven
+#         run: mvn clean install
 
        - name: Run calculator test
          run: mvn test
