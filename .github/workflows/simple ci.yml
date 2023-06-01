@@ -31,7 +31,7 @@ jobs:
 #       - name: Build the Docker image
 #         run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
        - name: publish to Docker hub
-         uses: docker/build-push-action@v1
+         uses: docker/build-push-action@v4
          with:
            Username: ${{ secrets.DOCKER_HUB_USERNAME }}
            Password:  ${{ secrets.DOCKER_HUB_PASSWORD }}
