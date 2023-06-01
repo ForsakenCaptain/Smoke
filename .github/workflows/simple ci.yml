@@ -63,8 +63,10 @@ jobs:
       - name: Login to Docker registry
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+#          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+#          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+           username: "489724@student.fontys.nl"
+           password: "Boxklonreng2"
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
