@@ -78,8 +78,6 @@ jobs:
       - name: Logout from Docker registry
         run: docker logout https://hub.docker.com/
 
-
-
 #      - name: publish to Docker hub
 #        uses: docker/build-push-action@v4
 #        with:
