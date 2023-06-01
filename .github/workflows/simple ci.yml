@@ -35,5 +35,5 @@ jobs:
          with:
            Username: ${{ secrets.DOCKER_HUB_USERNAME }}
            Password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-           Repository: dockerhubuser/dockerhubrepository
+           Repository: florisvander/testrepos1
            tags: ${{github.run_number}}

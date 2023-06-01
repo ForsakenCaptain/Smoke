@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class User2Controller {
+@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/library")public class User2Controller {
 
     @Autowired
     private User2Service userService;
@@ -28,7 +29,7 @@ public class User2Controller {
         return userService.getUserById(id);
     }
 
-    @PostMapping("/users")
+    @GetMapping("/users")
     public List<User2> getAllUsers(){
         return userService.GetUsers();
     }

@@ -10,8 +10,12 @@ import java.util.Optional;
 
 @Service
 public class GameService {
+    private final GameRepository gameRepository;
+
     @Autowired
-    private GameRepository gameRepository;
+    public GameService(GameRepository gameRepository) {
+        this.gameRepository = gameRepository;
+    }
 
     public Game createGame(Game game){
         return gameRepository.save(game);
@@ -20,7 +24,8 @@ public class GameService {
     public List<Game> createGames(List<Game> games){return gameRepository.saveAll(games);}
 
     public Game getGameById(int id){
-        return gameRepository.findById(id).orElse(null);
+        Game game = gameRepository.findById(id).orElse(null);
+        return game;
     }
 
     public List<Game> getAllGames(){return gameRepository.findAll();}

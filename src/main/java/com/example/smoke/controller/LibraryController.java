@@ -5,6 +5,7 @@ import com.example.smoke.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.Console;
 import java.util.List;
 
 @RestController
@@ -12,8 +13,13 @@ import java.util.List;
 @RequestMapping("/library")
 public class LibraryController {
 
-    @Autowired
+//    @Autowired
     private GameService gameService;
+
+    @Autowired
+    public LibraryController(GameService gameService){
+        this.gameService = gameService;
+    }
 
     @PostMapping("/Game")
     public String addGame(@RequestParam String name, @RequestParam int price){
@@ -39,13 +45,15 @@ public class LibraryController {
 
     @GetMapping("/GetGames/{id}")
     public Game getGame(@PathVariable int id){
-        return gameService.getGameById(id);
+        Game game = gameService.getGameById(id);
+        return game;
     }
 
 
     @GetMapping("/GetAllGames")
     public List<Game> getGames(){
-        return gameService.getAllGames();
+        List<Game> games = gameService.getAllGames();
+        return games;
     }
 
 
