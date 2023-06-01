@@ -71,7 +71,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
-          context: ./testrepos1
+          context: ./Dockerfile
           push: true
           tags: florisvander/testrepos1:latest
 
