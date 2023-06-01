@@ -11,5 +11,3 @@ COPY src ./src
 RUN mvn package -DskipTests
 
 ENTRYPOINT ["java", "-jar", "target/Smoke-0.0.1-SNAPSHOT.jar"]
-
-EXPOSE 4000
