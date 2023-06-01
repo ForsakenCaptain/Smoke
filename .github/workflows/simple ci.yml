@@ -65,7 +65,7 @@ jobs:
         with:
 #           username: ${{ secrets.DOCKER_HUB_USERNAME }}
 #           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-            username: "489724@student.fontys.nl"
+            username: "florisvander"
             password: "Boxklonreng2"
 
 
