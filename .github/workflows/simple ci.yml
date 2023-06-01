@@ -32,12 +32,6 @@ jobs:
 #       - name: Build the Docker image
 #         run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
-      - name: Docker Login
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -48,6 +42,11 @@ jobs:
           push: true
           tags: florisvander/testrepos1:latest
 
+      - name: Docker Login
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
 
 
