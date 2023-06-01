@@ -83,7 +83,7 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password:  ${{ secrets.DOCKER_HUB_PASSWORD }}
           push: true
-          repository: florisvander/testrepos1:latest
+          repository: florisvander/testrepos1
           tags: ${{github.run_number}}
 
 #      - name: publish to Docker hub
