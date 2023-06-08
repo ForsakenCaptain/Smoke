@@ -24,7 +24,7 @@ jobs:
 #       - name: build with maven
 #         run: mvn clean install
 
-      - name: Run calculator test
+      - name: Run tests
         run: mvn test
 
 # deploy:
@@ -71,7 +71,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: ./Smoke
           push: true
           tags: florisvander/testrepos1:latest
 
