@@ -68,11 +68,10 @@ jobs:
             username: "florisvander"
             password: "Boxklonreng2"
 
-
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
-          context: ./Smoke
+          context: .
           push: true
           tags: florisvander/testrepos1:latest
 
