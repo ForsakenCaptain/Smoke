@@ -24,18 +24,35 @@ jobs:
 #       - name: build with maven
 #         run: mvn clean install
 
-
       - name: Run tests
         run: mvn test
 
-      - name: Static code analysis
-        env:
-          GITHUB_TOKEN: "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"
-          SONAR_TOKEN: "6d27a781a47edfde6d2e9c1d11f8d9cbb68bf374"
-        run: mvn verify sonar:sonar \
+#      - name: Static code analysis
+#        env:
+#          GITHUB_TOKEN: "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"
+#          SONAR_TOKEN: "6d27a781a47edfde6d2e9c1d11f8d9cbb68bf374"
+#        run: mvn verify sonar:sonar \
 #          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.organization= ForsakenCaptain_Smoke \
-          -Dsonar.projectkey= forsakencaptain
+#          -Dsonar.organization= ForsakenCaptain_Smoke \
+#          -Dsonar.projectkey= forsakencaptain
+
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: "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"  # Needed to get PR information, if any
+          SONAR_TOKEN: "6d27a781a47edfde6d2e9c1d11f8d9cbb68bf374"
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ForsakenCaptain_Smoke
 
 # deploy:
 #       - uses: actions/checkout@v3
