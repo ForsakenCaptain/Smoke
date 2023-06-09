@@ -27,6 +27,15 @@ jobs:
       - name: Run tests
         run: mvn test
 
+      - name: Static code analysis
+        env:
+          GITHUB_TOKEN: "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"
+          SONAR_TOKEN: "6d27a781a47edfde6d2e9c1d11f8d9cbb68bf374"
+        run: mvn verify sonar:sonar \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.organization= ForsakenCaptain_Smoke \
+          -Dsonar.projectkey= forsakencaptain
+
 # deploy:
 #       - uses: actions/checkout@v3
 #       - name: Build the Docker image
